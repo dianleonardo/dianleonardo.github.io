@@ -28,7 +28,22 @@
     }
   </style>
   <script>
-    const giorniSettimana = [
+    
+  </script>
+</head>
+
+<body>
+  <!--Agenda personal dove inseriro i miei eventi
+      mi mostrera nella prima parte della pagina la settimana corrente con gli eventi che ho memorizzato
+      e nell'ultima parte della pagina potro aggiungere nuovi eventi -->
+  <h1>Agenda personale</h1>
+    <!-- tabella con la settimana corrente -->
+    <table>
+        <tr id="giorni">
+            <!-- le intestazioni dei giorni saranno generate dinamicamente dallo script -->
+        </tr>
+        <script>
+            const giorniSettimana = [
     "Lunedì", "Martedì", "Mercoledì",
     "Giovedì", "Venerdì", "Sabato", "Domenica"
     ];
@@ -60,19 +75,7 @@
         th.textContent = `${giorniSettimana[i]} ${dataFormattata}`;
         tr.appendChild(th);
     }
-  </script>
-</head>
-
-<body>
-  <!--Agenda personal dove inseriro i miei eventi
-      mi mostrera nella prima parte della pagina la settimana corrente con gli eventi che ho memorizzato
-      e nell'ultima parte della pagina potro aggiungere nuovi eventi -->
-  <h1>Agenda personale</h1>
-    <!-- tabella con la settimana corrente -->
-    <table>
-        <tr id="giorni">
-            <!-- le intestazioni dei giorni saranno generate dinamicamente dallo script -->
-        </tr>
+        </script>
     </table>
         
 
