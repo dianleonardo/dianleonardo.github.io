@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <title>Agenda personale</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  
+    body {
+      background-image: url("https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSDWwMJYiu2MGJtKJf7nGuWwQs6i0C5U7wEjL6qnwCaLv8XzFm3FXo4L7vTSiCx-U75byS23jlgJnTiKbM");
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1{
+      color: rgb(152, 116, 116);
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: rgb(138, 132, 201);
+    }
+  </style>
+  <script>
+    const giorniSettimana = [
+    "Lunedì", "Martedì", "Mercoledì",
+    "Giovedì", "Venerdì", "Sabato", "Domenica"
+    ];
+
+    const oggi = new Date();
+
+    // trova il lunedì della settimana corrente
+    const giorno = oggi.getDay(); // 0 = domenica
+    const diff = (giorno === 0 ? -6 : 1 - giorno);
+
+    const lunedi = new Date(oggi);
+    lunedi.setDate(oggi.getDate() + diff);
+
+    const tr = document.getElementById("giorni");
+
+    for (let i = 0; i < 7; i++) {
+        const data = new Date(lunedi);
+        data.setDate(lunedi.getDate() + i);
+
+        const th = document.createElement("th");
+
+        // formato breve
+        const dataFormattata = data.toLocaleDateString('it-IT');
+
+            if (data.toDateString() === oggi.toDateString()) {
+            th.style.backgroundColor = "yellow";
+        }
+
+        th.textContent = `${giorniSettimana[i]} ${dataFormattata}`;
+        tr.appendChild(th);
+    }
+  </script>
+</head>
+
+<body>
+  <!--Agenda personal dove inseriro i miei eventi
+      mi mostrera nella prima parte della pagina la settimana corrente con gli eventi che ho memorizzato
+      e nell'ultima parte della pagina potro aggiungere nuovi eventi -->
+  <h1>Agenda personale</h1>
+    <!-- tabella con la settimana corrente -->
+    <table>
+        <tr>
+            <th id="giorni"></th>
+        </tr>
+    </table>
+        
+
